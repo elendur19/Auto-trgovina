@@ -1,1 +1,1 @@
-# Auto-trgovina
+# App for car lovers
