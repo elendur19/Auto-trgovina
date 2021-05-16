@@ -1,0 +1,25 @@
+<div>
+    <p class="title">Add new Vehicle</p>
+</div>
+
+<div>
+    <label for="model">Vehicle model: </label>
+    <input id="model" [(ngModel)]="vehicle.model" placeholder="model">
+</div>
+<div style="margin-top: 10px;">
+    <label for="manufacturer">Vehicle manufacturer: </label>
+    <input id="manufacturer" [(ngModel)]="vehicle.manufacturer" placeholder="manufacturer">
+</div>
+<div style="margin-top: 10px;">
+    <label for="millage">Vehicle millage: </label>
+    <input id="millage" [(ngModel)]="vehicle.millage" placeholder="millage">
+</div>
+<div style="margin-top: 10px;">
+    <label for="description">Vehicle description: </label>
+    <input id="description" [(ngModel)]="vehicle.description" placeholder="description">
+</div>
+
+<div style="margin-top: 10px; margin-left: 10px;">
+    <input type="button" class="btn btn-secondary float-right" value="Submit" (click)="onSubmit()">
+    <button class="btn btn-primary mt float-right" style="margin-left: 10px;" routerLink="/vehicles">Back to Vehicles</button>
+</div>
