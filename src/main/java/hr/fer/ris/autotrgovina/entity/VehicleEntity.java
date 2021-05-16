@@ -17,6 +17,10 @@ import java.time.LocalDate;
 @ToString(callSuper = true)
 @Builder
 public class VehicleEntity extends BaseEntity{
+    @Column(name = "manufacturer")
+    private String manufacturer;
+    @Column(name = "model")
+    private String model;
     @Column(name = "description", columnDefinition = "varchar(4096)")
     private String description;
     @Column(name = "millage")
