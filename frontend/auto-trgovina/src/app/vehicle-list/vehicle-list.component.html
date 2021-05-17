@@ -1,45 +1,26 @@
-<div class="margin">
-  Vehicles 
+<div class="card split left">
+    <div class="card-header margin" style="font-size: 30px; margin-left: 20px;">
+        Vehicles
+        <input type="button" class="btn btn-primary float-right" value="Add new vehicle" (click)="newVehicle()">
+    </div>
+    <div class="card-body centered margins">
+        <ul class="list-group list-group-flush">
+            <div *ngFor="let vehicle of vehicles" style="margin-top:20px">
+                <li type="button" class="btn btn-secondary" (click)="vehicleClicked(vehicle)" class="list-group-item">{{ vehicle.manufacturer }} {{ vehicle.model }}</li>
+              
+                    <input type="button" class="btn btn-danger mt" value="Izbriši" (click)="deleteVehicle(vehicle.id)">
+                    <input type="button" class="btn btn-secondary mt ml" value="Uredi" (click)="editVehicle(vehicle.id)">
+                
+            </div>
+        </ul>
+    </div>
 </div>
 
-<div class="split left">
-    <div class="centered margins">
-        <input type="button" class="btn btn-secondary float-right" value="Add vehicle" (click)="newVehicle()">
-        <div *ngFor="let vehicle of vehicles" style="margin-top:20px">
-            <a (click)="vehicleClicked(vehicle)">
-                {{ vehicle.manufacturer }} {{ vehicle.model }}
-            </a>
-            <a (click)="deleteVehicle(vehicle.id)" style="margin-left:20px"> izbriši</a>
-            <a (click)="editVehicle(vehicle.id)" style="margin-left:20px"> uredi</a>
+<div class="card split right">
+    <div class="centered">
+        <div class="card-body">
+            <app-vehicle-detail *ngIf="selected" [vehicle]="selectedVehicle">
+            </app-vehicle-detail>
         </div>
     </div>
 </div>
-
-<div class="split right">
-    <div class="centered">
-
-        <app-vehicle-detail *ngIf="selected" [vehicle]="selectedVehicle">
-        </app-vehicle-detail>
-    </div>
-</div>
-
-
-
-<!-- 
-<table id="data_table" class="style">
-    <tbody>
-        <tr *ngFor="let vehicle of vehicles" [attr.id]="vehicle.id">
-            <td>{{ vehicle.id }}</td>
-            <td>{{ vehicle.description }}</td>
-            <td>{{ vehicle.millage }}</td>
-            <td>{{ vehicle.location }}</td>
-            <td>{{ vehicle.contact }}</td>
-            <td>{{ vehicle.variant }}</td>
-            <td>{{ vehicle.firstRegistration }}</td>
-            <td>{{ vehicle.power }}</td>
-            <td>{{ vehicle.price }}</td>
-            <td>{{ vehicle.manufacturer }}</td>
-            <td>{{ vehicle.model }}</td>
-        </tr>
-    </tbody> 
-</table> -->

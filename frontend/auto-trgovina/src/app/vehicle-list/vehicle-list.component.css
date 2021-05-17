@@ -31,6 +31,13 @@
     right: 0;
   }
   
+  .mt {
+    margin-top: 5px;
+  }
+
+  .ml {
+    margin-left: 5px;
+  }
   /* If you want the content centered horizontally and vertically 
   .centered {
     position: absolute;

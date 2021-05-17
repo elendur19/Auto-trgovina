@@ -16,7 +16,7 @@ export class VehicleService {
 
   constructor(private http: HttpClient,
               private router: Router) {
-      this.vehiclesUrl = 'http://139.177.179.182:8100/api/vehicle';
+      this.vehiclesUrl = 'http://localhost:8080/api/vehicle';
       
       this.vehicleIdChange.subscribe(vehicleId => {
         this.vehicleId = vehicleId;

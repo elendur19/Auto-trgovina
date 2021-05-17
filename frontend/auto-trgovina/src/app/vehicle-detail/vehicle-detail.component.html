@@ -1,22 +1,12 @@
 <div>
-    <h4>Vehicle id :   {{ vehicle.id }}</h4>
-<br>
-
-    <h4>Vehicle description : {{ vehicle.description }}</h4>
-
-
-    <br>
-
-    <h4>Vehicle millage : {{ vehicle.millage }}</h4>
-
-    <br>
-    <h4>Vehicle firstRegistration :  {{ vehicle.firstRegistration }}</h4>
-
-    <br>
-    <h4>Vehicle manufacturer :   {{ vehicle.manufacturer }}</h4>
-
-    <br>
-    <h4>Vehicle model :  {{ vehicle.model }}</h4>
-    <br>
-    
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">Vehicle manufacturer :   {{ vehicle.manufacturer }}</li>
+        <li class="list-group-item">Vehicle model :  {{ vehicle.model }}</li>
+        <li class="list-group-item">Vehicle power :  {{ vehicle.power }}</li>
+        <li class="list-group-item">Vehicle price :   {{ vehicle.price }}</li>
+        <li class="list-group-item">Vehicle description : {{ vehicle.description }}</li>
+        <li class="list-group-item gray">Vehicle millage : {{ vehicle.millage }}</li>
+        <li class="list-group-item">Vehicle firstRegistration :  {{ vehicle.firstRegistration }}</li>
+        <li class="list-group-item">Vehicle location :  {{ vehicle.location }}</li>
+      </ul>
 </div>

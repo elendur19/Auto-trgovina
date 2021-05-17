@@ -1,1 +1,26 @@
 /* You can add global styles to this file, and also import other style files */
+
+.font-20 {
+    font-size: 20px;
+}
+
+.font-24 {
+    font-size: 24px;
+}
+
+.font-28 {
+    font-size: 28px;
+}
+
+.m-l-5 {
+    margin-left: 5px;
+}
+
+.m-l-10 {
+    margin-left: 10px;
+}
+
+
+.m-l-20 {
+    margin-left: 20px;
+}

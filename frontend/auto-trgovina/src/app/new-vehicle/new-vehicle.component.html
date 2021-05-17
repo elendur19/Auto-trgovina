@@ -1,25 +1,48 @@
-<div>
-    <p class="title">Add new Vehicle</p>
-</div>
+<div class="card">
+    <div class="card-header font-20">
+        {{ action }} Vehicle
+    </div>
+    <div class="card-body">
+        <div>
+            <label for="model">Vehicle model: </label>
+            <input id="model" class="m-l-5" [(ngModel)]="vehicle.model" placeholder="model">
+        </div>
+        <div style="margin-top: 10px;">
+            <label for="manufacturer">Vehicle manufacturer: </label>
+            <input id="manufacturer" [(ngModel)]="vehicle.manufacturer" placeholder="manufacturer">
+        </div>
+        <div style="margin-top: 10px;">
+            <label for="millage">Vehicle millage: </label>
+            <input id="millage" [(ngModel)]="vehicle.millage" placeholder="millage">
+        </div>
+        <div style="margin-top: 10px;">
+            <label for="description">Vehicle description: </label>
+            <input id="description" [(ngModel)]="vehicle.description" placeholder="description">
+        </div>
+        <div style="margin-top: 10px;">
+            <label for="firstRegistration">Vehicle firstRegistration: </label>
+            <input id="firstRegistration" [(ngModel)]="vehicle.firstRegistration" placeholder="first registration">
+        </div>
+        <div style="margin-top: 10px;">
+            <label for="power">Vehicle power: </label>
+            <input id="power" [(ngModel)]="vehicle.power" placeholder="power">
+        </div>
+        <div style="margin-top: 10px;">
+            <label for="price">Vehicle price: </label>
+            <input id="price" [(ngModel)]="vehicle.price" placeholder="price">
+        </div>
+        <div style="margin-top: 10px;">
+            <label for="contact">Vehicle contact: </label>
+            <input id="contact" [(ngModel)]="vehicle.contact" placeholder="contact">
+        </div>
+        <div style="margin-top: 10px;">
+            <label for="location">Vehicle location: </label>
+            <input id="location" [(ngModel)]="vehicle.location" placeholder="location">
+        </div>
+    </div>
+    <div>
+        <input type="button" class="btn btn-primary float-right" value="Submit" (click)="onSubmit()">
+        <button class="btn btn-secondary mt float-right" style="margin-left: 10px;" routerLink="/vehicles">Back to Vehicles</button>
+    </div>
 
-<div>
-    <label for="model">Vehicle model: </label>
-    <input id="model" [(ngModel)]="vehicle.model" placeholder="model">
-</div>
-<div style="margin-top: 10px;">
-    <label for="manufacturer">Vehicle manufacturer: </label>
-    <input id="manufacturer" [(ngModel)]="vehicle.manufacturer" placeholder="manufacturer">
-</div>
-<div style="margin-top: 10px;">
-    <label for="millage">Vehicle millage: </label>
-    <input id="millage" [(ngModel)]="vehicle.millage" placeholder="millage">
-</div>
-<div style="margin-top: 10px;">
-    <label for="description">Vehicle description: </label>
-    <input id="description" [(ngModel)]="vehicle.description" placeholder="description">
-</div>
-
-<div style="margin-top: 10px; margin-left: 10px;">
-    <input type="button" class="btn btn-secondary float-right" value="Submit" (click)="onSubmit()">
-    <button class="btn btn-primary mt float-right" style="margin-left: 10px;" routerLink="/vehicles">Back to Vehicles</button>
 </div>
