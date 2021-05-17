@@ -1,48 +1,79 @@
-<div class="card">
-    <div class="card-header font-20">
-        {{ action }} Vehicle
-    </div>
-    <div class="card-body">
-        <div>
-            <label for="model">Vehicle model: </label>
-            <input id="model" class="m-l-5" [(ngModel)]="vehicle.model" placeholder="model">
+<div class="container">
+    <h1>{{ action }} Vehicle Data</h1>
+    <form (ngSubmit)="onSubmit()" #vehicleForm="ngForm">
+        <div class="row">
+        <div class="form-group col">
+            <label for="model" class="bold">Vehicle model: </label>
+            <input type="text" class="form-control" id="model" required [(ngModel)]="vehicle.model" name="model"
+                #model="ngModel">
+            <div [hidden]="model.valid" class="alert alert-danger">
+                Vehicle's name is required
+            </div>
         </div>
-        <div style="margin-top: 10px;">
-            <label for="manufacturer">Vehicle manufacturer: </label>
-            <input id="manufacturer" [(ngModel)]="vehicle.manufacturer" placeholder="manufacturer">
+        <div class="form-group col">
+            <label for="model" class="bold">Vehicle manufacturer: </label>
+            <input type="text" class="form-control" id="manufacturer" required [(ngModel)]="vehicle.manufacturer"
+                name="manufacturer" #manufacturer="ngModel">
+            <div [hidden]="manufacturer.valid" class="alert alert-danger">
+                Manufacturer's name is required
+            </div>
         </div>
-        <div style="margin-top: 10px;">
-            <label for="millage">Vehicle millage: </label>
-            <input id="millage" [(ngModel)]="vehicle.millage" placeholder="millage">
         </div>
-        <div style="margin-top: 10px;">
-            <label for="description">Vehicle description: </label>
-            <input id="description" [(ngModel)]="vehicle.description" placeholder="description">
+        <div class="row">
+        <div class="form-group col">
+            <label for="model" class="bold">Vehicle millage: </label>
+            <input type="number" class="form-control" id="millage" required [(ngModel)]="vehicle.millage" name="millage"
+                #millage="ngModel">
+            <div [hidden]="millage.valid" class="alert alert-danger">
+                Manufacturer's millage is required
+            </div>
         </div>
-        <div style="margin-top: 10px;">
-            <label for="firstRegistration">Vehicle firstRegistration: </label>
-            <input id="firstRegistration" [(ngModel)]="vehicle.firstRegistration" placeholder="first registration">
-        </div>
-        <div style="margin-top: 10px;">
-            <label for="power">Vehicle power: </label>
-            <input id="power" [(ngModel)]="vehicle.power" placeholder="power">
-        </div>
-        <div style="margin-top: 10px;">
-            <label for="price">Vehicle price: </label>
-            <input id="price" [(ngModel)]="vehicle.price" placeholder="price">
-        </div>
-        <div style="margin-top: 10px;">
-            <label for="contact">Vehicle contact: </label>
-            <input id="contact" [(ngModel)]="vehicle.contact" placeholder="contact">
-        </div>
-        <div style="margin-top: 10px;">
-            <label for="location">Vehicle location: </label>
-            <input id="location" [(ngModel)]="vehicle.location" placeholder="location">
+        <div class="form-group col">
+            <label for="model" class="bold">Vehicle description: </label>
+            <input type="text" class="form-control" id="description" required [(ngModel)]="vehicle.description"
+                name="description" #description="ngModel">
+            <div [hidden]="description.valid" class="alert alert-danger">
+                Manufacturer's description is required
+            </div>
         </div>
     </div>
-    <div>
-        <input type="button" class="btn btn-primary float-right" value="Submit" (click)="onSubmit()">
-        <button class="btn btn-secondary mt float-right" style="margin-left: 10px;" routerLink="/vehicles">Back to Vehicles</button>
+    <div class="row">
+        <div class="form-group col">
+            <label for="model" class="bold">Vehicle firstRegistration: </label>
+            <input type="date" class="form-control" id="firstRegistration" required
+                [(ngModel)]="vehicle.firstRegistration" name="firstRegistration" #firstRegistration="ngModel">
+            <div [hidden]="firstRegistration.valid" class="alert alert-danger">
+                Manufacturer's first registration is required
+            </div>
+        </div>
+        <div class="form-group col">
+            <label for="model" class="bold">Vehicle power: </label>
+            <input type="number" class="form-control" id="power" required [(ngModel)]="vehicle.power" name="power"
+                #power="ngModel">
+            <div [hidden]="power.valid" class="alert alert-danger">
+                Manufacturer's power is required
+            </div>
+        </div>
     </div>
-
+    <div class="row">
+        <div class="form-group col">
+            <label for="model" class="bold">Vehicle price: </label>
+            <input type="number" class="form-control" id="price" required [(ngModel)]="vehicle.price" name="price"
+                #price="ngModel">
+            <div [hidden]="price.valid" class="alert alert-danger">
+                Manufacturer's price is required
+            </div>
+        </div>
+        <div class="form-group col">
+            <label for="model" class="bold">Vehicle contact: </label>
+            <input type="text" class="form-control" id="contact" required [(ngModel)]="vehicle.contact" name="contact"
+                #contact="ngModel">
+            <div [hidden]="contact.valid" class="alert alert-danger">
+                Manufacturer's contact is required
+            </div>
+        </div>
+        </div>
+        <button type="submit" class="btn btn-success m-t-10" [disabled]="!vehicleForm.form.valid">Submit</button>
+        <button class="btn btn-secondary mt float-right m-t-10" style="margin-left: 10px;" routerLink="/vehicles">Back to Vehicles</button>
+    </form>
 </div>

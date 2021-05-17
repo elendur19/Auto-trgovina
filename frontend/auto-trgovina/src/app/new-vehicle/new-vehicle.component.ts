@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
 export class NewVehicleComponent implements OnInit {
 
   public vehicle = new Vehicle();
-  action: string = "Add";
+  action: string = "New";
 
   constructor(private vehicleService: VehicleService,
         private router: Router) {
@@ -32,7 +32,7 @@ export class NewVehicleComponent implements OnInit {
 
   onSubmit() {
      // console.log(this.vehicle);
-     if (this.action == "Add") {
+     if (this.action == "New") {
       this.vehicleService.save(this.vehicle).subscribe(result => {
           console.log(result);
           this.router.navigate(['/vehicles']);

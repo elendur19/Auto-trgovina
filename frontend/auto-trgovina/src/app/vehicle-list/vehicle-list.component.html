@@ -4,13 +4,13 @@
         <input type="button" class="btn btn-primary float-right" value="Add new vehicle" (click)="newVehicle()">
     </div>
     <div class="card-body centered margins">
-        <ul class="list-group list-group-flush">
+        <ul class="vehicles">
             <div *ngFor="let vehicle of vehicles" style="margin-top:20px">
-                <li type="button" class="btn btn-secondary" (click)="vehicleClicked(vehicle)" class="list-group-item">{{ vehicle.manufacturer }} {{ vehicle.model }}</li>
-              
-                    <input type="button" class="btn btn-danger mt" value="Izbriši" (click)="deleteVehicle(vehicle.id)">
-                    <input type="button" class="btn btn-secondary mt ml" value="Uredi" (click)="editVehicle(vehicle.id)">
-                
+                <li type="button" [class.selected]="vehicle === selectedVehicle" class="btn btn-secondary" (click)="vehicleClicked(vehicle)" class="list-group-item">
+                        {{ vehicle.manufacturer }} {{ vehicle.model }}</li>
+                <input type="button" class="btn btn-danger mt" value="Izbriši" (click)="deleteVehicle(vehicle.id)">
+                <input type="button" class="btn btn-secondary mt ml" value="Uredi" (click)="editVehicle(vehicle.id)">
+
             </div>
         </ul>
     </div>

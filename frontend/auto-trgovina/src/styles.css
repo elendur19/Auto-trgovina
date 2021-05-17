@@ -24,3 +24,13 @@
 .m-l-20 {
     margin-left: 20px;
 }
+
+.m-t-10 {
+    margin-top: 10px;
+}
+
+.bold {
+    font-weight: bolder;
+}
+
+@import url('https://unpkg.com/bootstrap@3.3.7/dist/css/bootstrap.min.css');

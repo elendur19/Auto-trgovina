@@ -46,4 +46,9 @@
     transform: translate(-50%, -50%);
     text-align: center;
   }*/
+
+  .vehicles li.selected {
+    background-color: gray;
+    color: white;
+  }
  
