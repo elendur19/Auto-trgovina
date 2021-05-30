@@ -27,6 +27,13 @@ export class VehicleService {
      return this.http.get<Vehicle[]>(this.vehiclesUrl);
    }
 
+   public filterVehicles(manufacturerId: number): Observable<Vehicle[]> {
+     return this.http.get<Vehicle[]>(this.vehiclesUrl + '/filter', {
+       params: {
+         manufacturer: manufacturerId
+       }});
+   }
+
    public getVehicleById(vehicleId: number): Observable<Vehicle> {
       return this.http.get<Vehicle>(this.vehiclesUrl + '/' + vehicleId);
   }

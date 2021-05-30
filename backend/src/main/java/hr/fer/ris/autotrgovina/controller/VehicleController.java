@@ -29,6 +29,12 @@ public class VehicleController {
         return ResponseEntity.ok(vehicleService.getById(id));
     }
 
+    // query by manufacturer
+    @GetMapping("/filter")
+    public ResponseEntity<List<VehicleEntity>> getVehiclesWithManufacturer(@RequestParam(name = "manufacturer") Long manufacturer) {
+        return ResponseEntity.ok(vehicleService.getWithManufacturer(manufacturer));
+    }
+
     @PostMapping
     public ResponseEntity<VehicleEntity> createVehicle(@RequestBody VehicleEntity vehicle) {
         return ResponseEntity.ok(vehicleService.save(vehicle));

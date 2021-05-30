@@ -1,6 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Vehicle } from '../model/Vehicle';
+import { Router } from '@angular/router';
+import { VehicleService } from '../service/vehicle.service';
 
 @Component({
   selector: 'app-vehicle-detail',
@@ -9,12 +11,15 @@ import { Vehicle } from '../model/Vehicle';
 })
 export class VehicleDetailComponent implements OnInit {
 
-  
-  
-  @Input()
   vehicle: Vehicle;
 
-  constructor() { }
+  constructor(private router: Router,
+    private vehicleService: VehicleService) { 
+    let id = this.router.getCurrentNavigation()?.extras.state?.id
+    vehicleService.getVehicleById(id).subscribe(vehicle => {
+      this.vehicle = vehicle;
+    })
+  }
 
   ngOnInit(): void {
   }

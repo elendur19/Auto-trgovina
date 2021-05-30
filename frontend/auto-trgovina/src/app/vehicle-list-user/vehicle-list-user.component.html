@@ -1,0 +1,26 @@
+<div class="card">
+    <div class="card-header margin" style="font-size: 30px; text-align: center;">
+        Vehicles
+    </div>
+    <div class="card-body centered margins">
+        <ul class="vehicles">
+            <div *ngFor="let vehicle of vehicles" style="margin-top:20px">
+                <li type="button" [class.selected]="vehicle === selectedVehicle" class="btn btn-secondary" (click)="vehicleClicked(vehicle)" class="list-group-item">
+                        {{ vehicleManufacturer.name }} {{ vehicle.model }}</li>
+
+            </div>
+        </ul>
+        <div *ngIf="vehicles.length == 0">
+            There are no vehicles for manufacturer {{ vehicleManufacturer.name }}
+        </div>
+    </div>
+</div>
+
+<!-- <div class="card split right">
+    <div class="centered">
+        <div class="card-body">
+            <app-vehicle-detail *ngIf="selected" [vehicle]="selectedVehicle">
+            </app-vehicle-detail>
+        </div>
+    </div>
+</div> -->

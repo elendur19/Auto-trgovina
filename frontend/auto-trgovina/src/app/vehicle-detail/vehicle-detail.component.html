@@ -1,13 +1,46 @@
-<div>
-    <ul class="list-group list-group-flush">
-        <li class="list-group-item">Vehicle manufacturer :   {{ vehicle.manufacturer }}</li>
-        <li class="list-group-item">Vehicle model :  {{ vehicle.model }}</li>
-        <li class="list-group-item">Vehicle power :  {{ vehicle.power }}</li>
-        <li class="list-group-item">Vehicle price :   {{ vehicle.price }}</li>
-        <li class="list-group-item">Vehicle description : {{ vehicle.description }}</li>
-        <li class="list-group-item gray">Vehicle millage : {{ vehicle.millage }}</li>
-        <li class="list-group-item">Vehicle firstRegistration :  {{ vehicle.firstRegistration }}</li>
-        <li class="list-group-item">Vehicle location :  {{ vehicle.location }}</li>
-      </ul>
-</div> 
+<div class="col-12 text-center m-b-30">
+  <h3>Vehicle details</h3>
+</div>
 
+<div>
+  <table class="table table-striped table-responsive-md btn-table">
+    <tbody>
+      <tr>
+        <td class="">Vehicle manufacturer :</td>
+        <td class="">{{ vehicle.manufacturer.name }}</td>
+      </tr>
+      <tr>
+        <td class="">Vehicle model :</td>
+        <td class="">{{ vehicle.model }}</td>
+      </tr>
+      <tr>
+        <td class="">Vehicle power :</td>
+        <td class="">{{ vehicle.power }}</td>
+      </tr>
+      <tr>
+        <td class="">Vehicle price :</td>
+        <td class="">{{ vehicle.price }}</td>
+      </tr>
+      <tr>
+        <td class="">Vehicle description :</td>
+        <td class="">{{ vehicle.description }}</td>
+      </tr>
+      <tr>
+        <td class="">Vehicle millage :</td>
+        <td class="">{{ vehicle.millage }}</td>
+      </tr>
+      <tr>
+        <td class="">Vehicle firstRegistration :</td>
+        <td class="">{{ vehicle.firstRegistration }}</td>
+      </tr>
+      <tr>
+        <td class="">Vehicle location :</td>
+        <td class="">{{ vehicle.location }}</td>
+      </tr>
+      <tr>
+        <td class="">Vehicle contact :</td>
+        <td class="">{{ vehicle.contact }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

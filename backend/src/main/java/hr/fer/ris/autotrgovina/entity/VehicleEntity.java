@@ -1,10 +1,10 @@
 package hr.fer.ris.autotrgovina.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 
 @EqualsAndHashCode(callSuper = true)
@@ -17,13 +17,19 @@ import java.time.LocalDate;
 @ToString(callSuper = true)
 @Builder
 public class VehicleEntity extends BaseEntity {
-    @Column(name = "manufacturer")
-    private String manufacturer;
+    @JoinColumn(name="manufacturer_id", insertable=false, updatable = false)
+    @ManyToOne
+    private ManufacturerEntity manufacturer;
+    @Column(name="manufacturer_id")
+    @NotNull
+    private Long manufacturerId;
     @Column(name = "model")
+    @NotNull
     private String model;
     @Column(name = "description", columnDefinition = "varchar(4096)")
     private String description;
     @Column(name = "millage")
+    @NotNull
     private Integer millage;
     @Column(name = "location")
     private String location;
@@ -34,7 +40,9 @@ public class VehicleEntity extends BaseEntity {
     @Column(name = "first_registration")
     private LocalDate firstRegistration;
     @Column(name = "power")
+    @NotNull
     private Integer power;
     @Column(name = "price")
+    @NotNull
     private Integer price;
 }

@@ -8,17 +8,25 @@ import lombok.SneakyThrows;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class VehicleServiceImpl extends AbstractService<VehicleEntity, Long> implements VehicleService {
-    private VehicleRepository vehicleRepository;
+    private final VehicleRepository vehicleRepository;
 
     @Autowired
     public VehicleServiceImpl(VehicleRepository vehicleRepository) {
         super(vehicleRepository);
+        this.vehicleRepository = vehicleRepository;
     }
 
     @SneakyThrows
     public VehicleEntity getById(Long id) {
         return super.getOptionalById(id).orElseThrow(VehicleNotFoundException::new);
+    }
+
+    @Override
+    public List<VehicleEntity> getWithManufacturer(Long manufacturer) {
+        return vehicleRepository.findByManufacturerId(manufacturer);
     }
 }

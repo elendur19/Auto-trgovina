@@ -10,6 +10,9 @@ import { VehicleDetailComponent } from './vehicle-detail/vehicle-detail.componen
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { NewVehicleComponent } from './new-vehicle/new-vehicle.component';
 import { FormsModule } from '@angular/forms';
+import { VehicleListUserComponent } from './vehicle-list-user/vehicle-list-user.component';
+import { ManufacturersListComponent } from './manufacturers-list/manufacturers-list.component';
+import { AdminPageComponent } from './admin-page/admin-page.component';
 
 //import { MatSidenavModule } from '@angular/';
 
@@ -19,7 +22,10 @@ import { FormsModule } from '@angular/forms';
     VehicleListComponent,
     VehicleContainerComponent,
     VehicleDetailComponent,
-    NewVehicleComponent
+    NewVehicleComponent,
+    VehicleListUserComponent,
+    ManufacturersListComponent,
+    AdminPageComponent
   ],
   imports: [
     BrowserModule,

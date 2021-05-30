@@ -1,3 +1,6 @@
+import { ManufacturerService } from "../service/manufacturer.service";
+import { Manufacturer } from "./Manufacturer";
+
 export class Vehicle {
     public id: number;
     public dateCreated: Date;
@@ -12,6 +15,6 @@ export class Vehicle {
     public firstRegistration: Date;
     public power: number;
     public price: number;
-    public manufacturer: string;
+    public manufacturer: Manufacturer;
     public model: string;
 }
