@@ -19,6 +19,7 @@ import java.time.LocalDate;
 public class VehicleEntity extends BaseEntity {
     @JoinColumn(name="manufacturer_id", insertable=false, updatable = false)
     @ManyToOne
+    @JsonIgnore
     private ManufacturerEntity manufacturer;
     @Column(name="manufacturer_id")
     @NotNull
@@ -45,4 +46,11 @@ public class VehicleEntity extends BaseEntity {
     @Column(name = "price")
     @NotNull
     private Integer price;
+
+    public VehicleEntity(ManufacturerEntity manufacturer, String model, String description, Integer millage) {
+        this.manufacturer = manufacturer;
+        this.model = model;
+        this.description = description;
+        this.millage = millage;
+    }
 }

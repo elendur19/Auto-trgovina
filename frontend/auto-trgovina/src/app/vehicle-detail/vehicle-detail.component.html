@@ -1,5 +1,5 @@
-<div class="col-12 text-center m-b-30">
-  <h3>Vehicle details</h3>
+<div class="col-12 text-center m-b-30 m-t-10">
+  <h3>Vehicle details for {{ vehicle.manufacturer.name }} {{ vehicle.model }}</h3>
 </div>
 
 <div>
@@ -43,4 +43,8 @@
       </tr>
     </tbody>
   </table>
+</div>
+
+<div>
+  <button class="btn btn-primary m-t-30  m-r-30 f-r" (click)="routeToMainPage()">Back to main page</button>
 </div>

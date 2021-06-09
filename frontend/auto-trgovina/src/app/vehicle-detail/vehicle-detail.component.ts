@@ -24,4 +24,7 @@ export class VehicleDetailComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  routeToMainPage() {
+    this.router.navigate(['manufacturers']);
+  }
 }

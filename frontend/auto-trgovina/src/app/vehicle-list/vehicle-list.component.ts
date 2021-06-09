@@ -51,4 +51,9 @@ export class VehicleListComponent implements OnInit {
   editVehicle(vehicleId: number) {
       this.router.navigate(['edit'], { state: { id: vehicleId } })
   }
+
+  logoutAdmin() {
+    localStorage.clear();
+    this.router.navigate(['/manufacturers']);
+  }
 }

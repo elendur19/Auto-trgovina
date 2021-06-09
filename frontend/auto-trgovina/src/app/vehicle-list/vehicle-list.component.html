@@ -1,19 +1,21 @@
-<div class="card split left">
-    <div class="card-header margin" style="font-size: 30px; margin-left: 20px;">
-        Vehicles List
+<div class="card">
+    <div class="card-header margin" style="font-size: 30px; text-align: center;">
+        Manage vehicles
         <input type="button" class="btn btn-primary float-right" value="Add new vehicle" (click)="newVehicle()">
     </div>
     <div class="card-body centered margins">
         <ul class="vehicles">
             <div *ngFor="let vehicle of vehicles" style="margin-top:20px">
-                <li type="button" [class.selected]="vehicle === selectedVehicle" class="btn btn-secondary" (click)="vehicleClicked(vehicle)" class="list-group-item">
-                        {{ vehicle.manufacturer }} {{ vehicle.model }}</li>
+                <li type="button" class="btn btn-secondary" (click)="vehicleClicked(vehicle)" class="list-group-item">
+                        {{ vehicle.manufacturer.name }} {{ vehicle.model }}</li>
                 <input type="button" class="btn btn-danger mt" value="Izbriši" (click)="deleteVehicle(vehicle.id)">
                 <input type="button" class="btn btn-secondary mt ml" value="Uredi" (click)="editVehicle(vehicle.id)">
-
             </div>
         </ul>
     </div>
+</div>
+<div >
+    <button class="btn btn-secondary float-right m-t-30 m-r-30" (click)="logoutAdmin()">Logout</button>
 </div>
 
 <!-- <div class="card split right">

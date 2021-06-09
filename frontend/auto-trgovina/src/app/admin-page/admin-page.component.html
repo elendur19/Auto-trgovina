@@ -10,6 +10,11 @@
             <input type="text" class="form-control" id="password" [(ngModel)]="password" name="password"
                 #description="ngModel">
         </div>
-        <button type="submit" class="btn btn-primary m-t-10" style="float: right;">Login</button>
+        <button class="btn btn-primary m-t-10 f-l" (click)="routeToMainPage()">Back to main page</button> 
+        <button type="submit" class="btn btn-primary m-t-10" style="float: right;" (click)=validateUser()>Login</button>
     </form>
+</div>
+
+<div class="container alert alert-danger m-t-60" *ngIf="badCredentials">
+    The credentials you entered are not valid.
 </div>

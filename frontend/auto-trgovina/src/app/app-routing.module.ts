@@ -14,8 +14,8 @@ const routes: Routes = [
   { path: 'admin', component: AdminPageComponent},
   { path: 'new', component: NewVehicleComponent },
   { path: 'edit', component: NewVehicleComponent },
-  { path: "**", redirectTo: "manufacturers"},
-  { path: 'uredi', component: VehicleListComponent }
+  { path: 'manage', component: VehicleListComponent },
+  { path: "**", redirectTo: "manufacturers"}
 ];
 
 @NgModule({
