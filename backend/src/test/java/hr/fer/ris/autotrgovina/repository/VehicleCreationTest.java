@@ -59,6 +59,7 @@ public class VehicleCreationTest {
 
     @Test
     public void createValidVehicleTest() throws Exception {
+
         ManufacturerEntity manufacturerEntity = manufacturerRepository.findByName("Audi");
         VehicleEntity vehicleToSave = new VehicleEntity(manufacturerEntity, manufacturerEntity.getId(), "Audi A5", "good car",
                 64321, "Osijek", "5443", "first", LocalDate.now(), 4544, 747434);

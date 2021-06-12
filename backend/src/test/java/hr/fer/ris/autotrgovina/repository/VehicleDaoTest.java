@@ -27,12 +27,11 @@ public class VehicleDaoTest {
     @Test
     public void notValidVehicleTest() {
         //ManufacturerEntity manufacturerEntity = manufacturerRepository.getById(1L);
-        VehicleEntity validVehicle = new VehicleEntity(null, null, "Audi A5", "good car",
+        VehicleEntity notValidVehicle = new VehicleEntity(null, null, "Audi A5", "good car",
                 64321, "Osijek", "5443", "first", LocalDate.now(), 4544, 747434);
 
         Assertions.assertThrows(ConstraintViolationException.class,
-                ()-> vehicleRepository.save(validVehicle), "ManufacturerId must have value");
-
+                ()-> vehicleRepository.save(notValidVehicle), "ManufacturerId must have value");
     }
 
     @Test

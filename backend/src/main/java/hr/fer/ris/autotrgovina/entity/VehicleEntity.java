@@ -19,7 +19,7 @@ import java.time.LocalDate;
 public class VehicleEntity extends BaseEntity {
     @JoinColumn(name="manufacturer_id", insertable=false, updatable = false)
     @ManyToOne
-    @JsonIgnore
+    //@JsonIgnore
     private ManufacturerEntity manufacturer;
     @Column(name="manufacturer_id")
     @NotNull

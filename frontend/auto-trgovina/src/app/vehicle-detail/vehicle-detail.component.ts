@@ -15,10 +15,13 @@ export class VehicleDetailComponent implements OnInit {
 
   constructor(private router: Router,
     private vehicleService: VehicleService) { 
-    let id = this.router.getCurrentNavigation()?.extras.state?.id
-    vehicleService.getVehicleById(id).subscribe(vehicle => {
-      this.vehicle = vehicle;
-    })
+    let id = this.router.getCurrentNavigation()?.extras.state?.id;
+    vehicleService.getVehicleById(id).subscribe(vehicleData => {
+      this.vehicle = vehicleData;
+      console.log("dobiveno vozilo ime -> " + vehicleData.manufacturer.name);
+      console.log("vozilo -> " + vehicleData);
+      console.log("moje vozilo --> " + this.vehicle);
+    });
   }
 
   ngOnInit(): void {
