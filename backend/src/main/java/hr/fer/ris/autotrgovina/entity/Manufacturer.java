@@ -16,12 +16,12 @@ import java.util.List;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class ManufacturerEntity extends BaseEntity {
+public class Manufacturer extends BaseEntity {
     @Column(name = "name")
     @NotNull
     private String name;
 
     @JsonIgnore
     @OneToMany(mappedBy="manufacturer")
-    private List<VehicleEntity> vehicles;
+    private List<Vehicle> vehicles;
 }

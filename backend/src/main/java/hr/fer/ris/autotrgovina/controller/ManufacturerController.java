@@ -1,6 +1,6 @@
 package hr.fer.ris.autotrgovina.controller;
 
-import hr.fer.ris.autotrgovina.entity.ManufacturerEntity;
+import hr.fer.ris.autotrgovina.entity.Manufacturer;
 import hr.fer.ris.autotrgovina.model.ManufacturerModel;
 import hr.fer.ris.autotrgovina.service.definition.ManufacturerService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +26,7 @@ public class ManufacturerController {
     }
 
     @PostMapping
-    public ResponseEntity<ManufacturerEntity> createManufacturer(@RequestBody ManufacturerEntity manufacturer) {
+    public ResponseEntity<Manufacturer> createManufacturer(@RequestBody Manufacturer manufacturer) {
         return ResponseEntity.ok(manufacturerService.save(manufacturer));
     }
 }

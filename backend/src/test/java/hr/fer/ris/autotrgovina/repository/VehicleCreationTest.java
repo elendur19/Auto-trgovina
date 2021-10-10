@@ -3,8 +3,8 @@ package hr.fer.ris.autotrgovina.repository;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import hr.fer.ris.autotrgovina.AutoTrgovinaApplication;
-import hr.fer.ris.autotrgovina.entity.ManufacturerEntity;
-import hr.fer.ris.autotrgovina.entity.VehicleEntity;
+import hr.fer.ris.autotrgovina.entity.Manufacturer;
+import hr.fer.ris.autotrgovina.entity.Vehicle;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -60,8 +60,8 @@ public class VehicleCreationTest {
     @Test
     public void createValidVehicleTest() throws Exception {
 
-        ManufacturerEntity manufacturerEntity = manufacturerRepository.findByName("Audi");
-        VehicleEntity vehicleToSave = new VehicleEntity(manufacturerEntity, manufacturerEntity.getId(), "Audi A5", "good car",
+        Manufacturer manufacturerEntity = manufacturerRepository.findByName("Audi");
+        Vehicle vehicleToSave = new Vehicle(manufacturerEntity, manufacturerEntity.getId(), "Audi A5", "good car",
                 64321, "Osijek", "5443", "first", LocalDate.now(), 4544, 747434);
 
         String vehicleAsString = mapper.writeValueAsString(vehicleToSave);
@@ -76,7 +76,7 @@ public class VehicleCreationTest {
 
         MvcResult result = this.mockMvc.perform(builder).andReturn();
         String content = result.getResponse().getContentAsString();
-        VehicleEntity createdVehicle = mapper.readValue(content, VehicleEntity.class);
+        Vehicle createdVehicle = mapper.readValue(content, Vehicle.class);
         Long savedVehicleId = createdVehicle.getId();
         //Assertions.assertEquals(200, result.getResponse().getStatus());
 
@@ -84,9 +84,9 @@ public class VehicleCreationTest {
         result = this.mockMvc.perform(get("/api/vehicle").accept("application/json"))
                 .andExpect(status().isOk()).andReturn();
 
-        List<VehicleEntity> vehicles = mapper.readValue(result.getResponse().getContentAsString(), new TypeReference<>() {});
+        List<Vehicle> vehicles = mapper.readValue(result.getResponse().getContentAsString(), new TypeReference<>() {});
         boolean createdVehiclePresent = false;
-        for (VehicleEntity vehicle : vehicles) {
+        for (Vehicle vehicle : vehicles) {
             if (vehicle.getId().equals(savedVehicleId)) {
                 createdVehiclePresent = true;
                 break;

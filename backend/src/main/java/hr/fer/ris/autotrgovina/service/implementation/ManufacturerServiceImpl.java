@@ -1,6 +1,6 @@
 package hr.fer.ris.autotrgovina.service.implementation;
 
-import hr.fer.ris.autotrgovina.entity.ManufacturerEntity;
+import hr.fer.ris.autotrgovina.entity.Manufacturer;
 import hr.fer.ris.autotrgovina.model.ManufacturerModel;
 import hr.fer.ris.autotrgovina.service.definition.ManufacturerService;
 import hr.fer.ris.autotrgovina.repository.ManufacturerRepository;
@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class ManufacturerServiceImpl extends AbstractService<ManufacturerEntity, Long> implements ManufacturerService {
+public class ManufacturerServiceImpl extends AbstractService<Manufacturer, Long> implements ManufacturerService {
     private final ManufacturerRepository manufacturerRepository;
 
     @Autowired
@@ -22,9 +22,9 @@ public class ManufacturerServiceImpl extends AbstractService<ManufacturerEntity,
 
     @Override
     public List<ManufacturerModel> getAllManufacturers() {
-        List<ManufacturerEntity> manufacturers = manufacturerRepository.findAll();
+        List<Manufacturer> manufacturers = manufacturerRepository.findAll();
         List<ManufacturerModel> manufacturerModels = new ArrayList<>();
-        for (ManufacturerEntity manufacturerEntity : manufacturers) {
+        for (Manufacturer manufacturerEntity : manufacturers) {
             ManufacturerModel manufacturerModel = new ManufacturerModel();
             manufacturerModel.setName(manufacturerEntity.getName());
             manufacturerModel.setId(manufacturerEntity.getId());

@@ -1,6 +1,5 @@
 package hr.fer.ris.autotrgovina.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
@@ -16,11 +15,11 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @ToString(callSuper = true)
 @Builder
-public class VehicleEntity extends BaseEntity {
+public class Vehicle extends BaseEntity {
     @JoinColumn(name="manufacturer_id", insertable=false, updatable = false)
     @ManyToOne
     //@JsonIgnore
-    private ManufacturerEntity manufacturer;
+    private Manufacturer manufacturer;
     @Column(name="manufacturer_id")
     @NotNull
     private Long manufacturerId;
@@ -47,7 +46,7 @@ public class VehicleEntity extends BaseEntity {
     @NotNull
     private Integer price;
 
-    public VehicleEntity(ManufacturerEntity manufacturer, String model, String description, Integer millage) {
+    public Vehicle(Manufacturer manufacturer, String model, String description, Integer millage) {
         this.manufacturer = manufacturer;
         this.model = model;
         this.description = description;

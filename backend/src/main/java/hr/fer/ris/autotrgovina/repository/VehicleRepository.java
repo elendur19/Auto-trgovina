@@ -1,13 +1,13 @@
 package hr.fer.ris.autotrgovina.repository;
 
-import hr.fer.ris.autotrgovina.entity.VehicleEntity;
+import hr.fer.ris.autotrgovina.entity.Vehicle;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 @Repository
-public interface VehicleRepository extends JpaRepository<VehicleEntity, Long> {
+public interface VehicleRepository extends JpaRepository<Vehicle, Long> {
 
-    List<VehicleEntity> findByManufacturerId( Long manufacturer);
+    List<Vehicle> findByManufacturerId(Long manufacturer);
 }
