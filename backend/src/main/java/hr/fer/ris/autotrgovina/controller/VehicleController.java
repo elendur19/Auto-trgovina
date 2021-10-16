@@ -1,6 +1,8 @@
 package hr.fer.ris.autotrgovina.controller;
 
 import hr.fer.ris.autotrgovina.entity.VehicleEntity;
+import hr.fer.ris.autotrgovina.model.VehicleRequest;
+import hr.fer.ris.autotrgovina.model.VehicleResponse;
 import hr.fer.ris.autotrgovina.service.definition.VehicleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -36,8 +38,8 @@ public class VehicleController {
     }
 
     @PostMapping
-    public ResponseEntity<VehicleEntity> createVehicle(@RequestBody VehicleEntity vehicle) {
-        return ResponseEntity.ok(vehicleService.save(vehicle));
+    public ResponseEntity<VehicleResponse> createVehicle(@RequestBody VehicleRequest request) {
+        return ResponseEntity.ok(vehicleService.createNewVehicle(request));
     }
 
     @PutMapping("/{id}")
