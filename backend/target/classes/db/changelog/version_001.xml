@@ -20,7 +20,7 @@
                 <constraints nullable="false"/>
             </column>
 
-            <column name="age" type="varchar(32)">
+            <column name="age" type="int">
                 <constraints nullable="true"/>
             </column>
 
@@ -28,7 +28,7 @@
                 <constraints nullable="true"/>
             </column>
 
-            <column name="role" type="int">
+            <column name="role" type="varchar(32)">
                 <constraints nullable="false"/>
             </column>
         </createTable>

@@ -29,13 +29,13 @@ export class AdminPageComponent implements OnInit {
     this.userService.authenticate().subscribe(user => {
       console.log("trying to validate user");
     },(error => {
-      // error ocurred, user entered not valid credentials
+      // error ocurred, user entered invalid credentials
       this.badCredentials = true;
     }) );
     
   }
 
   routeToMainPage() {
-    this.router.navigate(['manufacturers']);
+    this.router.navigate(['manufacturers']);``
   }
 }
