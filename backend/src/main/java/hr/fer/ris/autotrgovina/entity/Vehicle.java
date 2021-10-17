@@ -29,7 +29,7 @@ public class Vehicle extends BaseEntity {
     @Column(name = "description", columnDefinition = "varchar(4096)")
     private String description;
     @Column(name = "millage")
-    @NotNull
+    //@NotNull
     private Integer millage;
     @Column(name = "location")
     private String location;
