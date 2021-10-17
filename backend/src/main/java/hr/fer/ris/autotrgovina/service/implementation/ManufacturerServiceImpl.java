@@ -24,10 +24,10 @@ public class ManufacturerServiceImpl extends AbstractService<Manufacturer, Long>
     public List<ManufacturerModel> getAllManufacturers() {
         List<Manufacturer> manufacturers = manufacturerRepository.findAll();
         List<ManufacturerModel> manufacturerModels = new ArrayList<>();
-        for (Manufacturer manufacturerEntity : manufacturers) {
+        for (Manufacturer Manufacturer : manufacturers) {
             ManufacturerModel manufacturerModel = new ManufacturerModel();
-            manufacturerModel.setName(manufacturerEntity.getName());
-            manufacturerModel.setId(manufacturerEntity.getId());
+            manufacturerModel.setName(Manufacturer.getName());
+            manufacturerModel.setId(Manufacturer.getId());
             manufacturerModels.add(manufacturerModel);
         }
         return manufacturerModels;

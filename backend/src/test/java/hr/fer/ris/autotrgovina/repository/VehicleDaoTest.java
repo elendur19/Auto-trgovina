@@ -24,7 +24,7 @@ public class VehicleDaoTest {
 
     @Test
     public void notValidVehicleTest() {
-        //ManufacturerEntity manufacturerEntity = manufacturerRepository.getById(1L);
+        //Manufacturer Manufacturer = manufacturerRepository.getById(1L);
         Vehicle notValidVehicle = new Vehicle(null, null, "Audi A5", "good car",
                 64321, "Osijek", "5443", "first", LocalDate.now(), 4544, 747434);
 
@@ -34,8 +34,8 @@ public class VehicleDaoTest {
 
     @Test
     public void validVehicleTest() {
-        Manufacturer manufacturerEntity = manufacturerRepository.findByName("Audi");
-        Vehicle validVehicle = new Vehicle(manufacturerEntity, manufacturerEntity.getId(), "Audi A5", "good car",
+        Manufacturer Manufacturer = manufacturerRepository.findByName("Audi");
+        Vehicle validVehicle = new Vehicle(Manufacturer, Manufacturer.getId(), "Audi A5", "good car",
                 64321, "Osijek", "5443", "first", LocalDate.now(), 4544, 747434);
 
         Assertions.assertDoesNotThrow(()-> vehicleRepository.save(validVehicle),

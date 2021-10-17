@@ -1,16 +1,16 @@
 package hr.fer.ris.autotrgovina.service.definition;
 
-import hr.fer.ris.autotrgovina.entity.VehicleEntity;
+import hr.fer.ris.autotrgovina.entity.Vehicle;
 import hr.fer.ris.autotrgovina.model.VehicleRequest;
 import hr.fer.ris.autotrgovina.model.VehicleResponse;
 
 import java.util.List;
 
-public interface VehicleService extends CRUDService<VehicleEntity, Long> {
+public interface VehicleService extends CRUDService<Vehicle, Long> {
 
-    VehicleEntity getById(Long id);
+    Vehicle getById(Long id);
 
-    List<VehicleEntity> getWithManufacturer(Long manufacturer);
+    List<Vehicle> getWithManufacturer(Long manufacturer);
 
     VehicleResponse createNewVehicle(VehicleRequest request);
 }

@@ -1,7 +1,7 @@
 package hr.fer.ris.autotrgovina.service.implementation;
 
-import hr.fer.ris.autotrgovina.entity.ManufacturerEntity;
-import hr.fer.ris.autotrgovina.entity.VehicleEntity;
+import hr.fer.ris.autotrgovina.entity.Manufacturer;
+import hr.fer.ris.autotrgovina.entity.Vehicle;
 import hr.fer.ris.autotrgovina.exception.ManufacturerNotFoundException;
 import hr.fer.ris.autotrgovina.exception.VehicleNotFoundException;
 import hr.fer.ris.autotrgovina.model.VehicleRequest;
@@ -16,7 +16,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class VehicleServiceImpl extends AbstractService<VehicleEntity, Long> implements VehicleService {
+public class VehicleServiceImpl extends AbstractService<Vehicle, Long> implements VehicleService {
     private final VehicleRepository vehicleRepository;
     private final ManufacturerRepository manufacturerRepository;
 
@@ -28,30 +28,30 @@ public class VehicleServiceImpl extends AbstractService<VehicleEntity, Long> imp
     }
 
     @SneakyThrows
-    public VehicleEntity getById(Long id) {
+    public Vehicle getById(Long id) {
         return super.getOptionalById(id).orElseThrow(VehicleNotFoundException::new);
     }
 
     @Override
-    public List<VehicleEntity> getWithManufacturer(Long manufacturer) {
+    public List<Vehicle> getWithManufacturer(Long manufacturer) {
         return vehicleRepository.findByManufacturerId(manufacturer);
     }
 
     @Override
     public VehicleResponse createNewVehicle(VehicleRequest request) {
-        ManufacturerEntity manufacturer = manufacturerRepository.findByName(request.getManufacturerName());
+        Manufacturer manufacturer = manufacturerRepository.findByName(request.getManufacturerName());
         if (manufacturer == null) throw new ManufacturerNotFoundException(request.getManufacturerName());
-        VehicleEntity vehicle = new VehicleEntity();
+        Vehicle vehicle = new Vehicle();
         vehicle.setManufacturer(manufacturer);
         vehicle.setManufacturerId(manufacturer.getId());
         vehicle.setModel(request.getModel());
         vehicle.setPower(request.getPower());
         vehicle.setPrice(request.getPrice());
         vehicleRepository.save(vehicle);
-        return mapVehicleEntityToResponse(vehicle);
+        return mapVehicleToResponse(vehicle);
     }
 
-    private VehicleResponse mapVehicleEntityToResponse(VehicleEntity vehicle) {
+    private VehicleResponse mapVehicleToResponse(Vehicle vehicle) {
         VehicleResponse vehicleResponse = new VehicleResponse();
         vehicleResponse.setModel(vehicle.getModel());
         vehicleResponse.setPower(vehicle.getPower());

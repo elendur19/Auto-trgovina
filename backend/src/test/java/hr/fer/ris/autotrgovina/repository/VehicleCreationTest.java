@@ -60,8 +60,8 @@ public class VehicleCreationTest {
     @Test
     public void createValidVehicleTest() throws Exception {
 
-        Manufacturer manufacturerEntity = manufacturerRepository.findByName("Audi");
-        Vehicle vehicleToSave = new Vehicle(manufacturerEntity, manufacturerEntity.getId(), "Audi A5", "good car",
+        Manufacturer Manufacturer = manufacturerRepository.findByName("Audi");
+        Vehicle vehicleToSave = new Vehicle(Manufacturer, Manufacturer.getId(), "Audi A5", "good car",
                 64321, "Osijek", "5443", "first", LocalDate.now(), 4544, 747434);
 
         String vehicleAsString = mapper.writeValueAsString(vehicleToSave);
@@ -80,7 +80,7 @@ public class VehicleCreationTest {
         Long savedVehicleId = createdVehicle.getId();
         //Assertions.assertEquals(200, result.getResponse().getStatus());
 
-        //VehicleEntity vehicle = new VehicleEntity(null, "Audi A3", "good car", 12322);
+        //Vehicle vehicle = new Vehicle(null, "Audi A3", "good car", 12322);
         result = this.mockMvc.perform(get("/api/vehicle").accept("application/json"))
                 .andExpect(status().isOk()).andReturn();
 
