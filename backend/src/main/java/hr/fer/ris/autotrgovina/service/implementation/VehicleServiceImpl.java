@@ -39,8 +39,8 @@ public class VehicleServiceImpl extends AbstractService<Vehicle, Long> implement
 
     @Override
     public VehicleResponse createNewVehicle(VehicleRequest request) {
-        Manufacturer manufacturer = manufacturerRepository.findByName(request.getManufacturerName());
-        if (manufacturer == null) throw new ManufacturerNotFoundException(request.getManufacturerName());
+        Manufacturer manufacturer = manufacturerRepository.findByName(request.getManufacturer());
+        if (manufacturer == null) throw new ManufacturerNotFoundException(request.getManufacturer());
         Vehicle vehicle = new Vehicle();
         vehicle.setManufacturer(manufacturer);
         vehicle.setManufacturerId(manufacturer.getId());

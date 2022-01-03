@@ -6,7 +6,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class VehicleRequest {
-    private String manufacturerName;
+    private String manufacturer;
     private String model;
     private Integer price;
     private Integer power;

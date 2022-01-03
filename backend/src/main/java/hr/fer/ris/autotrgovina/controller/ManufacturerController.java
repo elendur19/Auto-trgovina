@@ -5,6 +5,7 @@ import hr.fer.ris.autotrgovina.model.ManufacturerModel;
 import hr.fer.ris.autotrgovina.service.definition.ManufacturerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -21,11 +22,13 @@ public class ManufacturerController {
     }
 
     @GetMapping
+    //@PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_USER')")
     public ResponseEntity<List<ManufacturerModel>> getAllManufacturers() {
         return ResponseEntity.ok(manufacturerService.getAllManufacturers());
     }
 
     @PostMapping
+    //@PreAuthorize("hasAuthority('manufacturer:write')")
     public ResponseEntity<Manufacturer> createManufacturer(@RequestBody Manufacturer manufacturer) {
         return ResponseEntity.ok(manufacturerService.save(manufacturer));
     }

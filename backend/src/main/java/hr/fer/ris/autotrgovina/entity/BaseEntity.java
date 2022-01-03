@@ -5,7 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.time.Instant;
+import java.time.LocalDate;
 
 @MappedSuperclass
 @Data
@@ -16,27 +16,27 @@ public class BaseEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     protected Long id;
     @Column(name = "date_created", updatable = false)
-    protected Instant dateCreated;
+    protected LocalDate dateCreated;
     @Column(name = "date_updated")
-    protected Instant dateUpdated;
+    protected LocalDate dateUpdated;
     @Column(name = "date_deleted", updatable = false)
-    protected Instant dateDeleted;
+    protected LocalDate dateDeleted;
     @Column(name = "deleted", updatable = false)
     protected Boolean deleted;
 
     @PrePersist
     private void setDateCreated() {
-        dateCreated = Instant.now();
+        dateCreated = LocalDate.now();
     }
 
     @PreUpdate
     private void setDateUpdated() {
-        dateUpdated = Instant.now();
+        dateUpdated = LocalDate.now();
     }
 
     @PreRemove
     private void setDateDeleted() {
         deleted = true;
-        dateDeleted = Instant.now();
+        dateDeleted = LocalDate.now();
     }
 }
