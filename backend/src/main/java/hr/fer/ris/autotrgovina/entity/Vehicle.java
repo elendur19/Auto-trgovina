@@ -29,7 +29,6 @@ public class Vehicle extends BaseEntity {
     @Column(name = "description", columnDefinition = "varchar(4096)")
     private String description;
     @Column(name = "millage")
-    //@NotNull
     private Integer millage;
     @Column(name = "location")
     private String location;
@@ -46,10 +45,9 @@ public class Vehicle extends BaseEntity {
     @NotNull
     private Integer price;
 
-    public Vehicle(Manufacturer manufacturer, String model, String description, Integer millage) {
+    public Vehicle(Manufacturer manufacturer, String model, String description) {
         this.manufacturer = manufacturer;
         this.model = model;
         this.description = description;
-        this.millage = millage;
     }
 }

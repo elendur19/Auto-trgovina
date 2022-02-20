@@ -13,6 +13,7 @@ import lombok.SneakyThrows;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
@@ -38,15 +39,17 @@ public class VehicleServiceImpl extends AbstractService<Vehicle, Long> implement
     }
 
     @Override
+    @Transactional
     public VehicleResponse createNewVehicle(VehicleRequest request) {
         Manufacturer manufacturer = manufacturerRepository.findByName(request.getManufacturer());
         if (manufacturer == null) throw new ManufacturerNotFoundException(request.getManufacturer());
-        Vehicle vehicle = new Vehicle();
+        var vehicle = new Vehicle();
         vehicle.setManufacturer(manufacturer);
         vehicle.setManufacturerId(manufacturer.getId());
         vehicle.setModel(request.getModel());
-        vehicle.setPower(request.getPower());
-        vehicle.setPrice(request.getPrice());
+        vehicle.setPower(Integer.parseInt(request.getPower()));
+        vehicle.setPrice(Integer.parseInt(request.getPrice()));
+        vehicle.setMillage(Integer.parseInt(request.getMillage()));
         vehicleRepository.save(vehicle);
         return mapVehicleToResponse(vehicle);
     }

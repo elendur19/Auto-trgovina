@@ -17,7 +17,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Manufacturer extends BaseEntity {
-    @Column(name = "name")
+    @Column(name = "name", unique = true)
     @NotNull
     private String name;
 

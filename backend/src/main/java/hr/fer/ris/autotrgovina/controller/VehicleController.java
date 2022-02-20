@@ -1,7 +1,6 @@
 package hr.fer.ris.autotrgovina.controller;
 
 import hr.fer.ris.autotrgovina.entity.Vehicle;
-import hr.fer.ris.autotrgovina.entity.Vehicle;
 import hr.fer.ris.autotrgovina.model.VehicleRequest;
 import hr.fer.ris.autotrgovina.model.VehicleResponse;
 import hr.fer.ris.autotrgovina.service.definition.VehicleService;

@@ -2,6 +2,7 @@ package hr.fer.ris.autotrgovina.controller;
 
 import hr.fer.ris.autotrgovina.entity.Manufacturer;
 import hr.fer.ris.autotrgovina.model.ManufacturerModel;
+import hr.fer.ris.autotrgovina.model.ManufacturerRequest;
 import hr.fer.ris.autotrgovina.service.definition.ManufacturerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -29,7 +30,7 @@ public class ManufacturerController {
 
     @PostMapping
     //@PreAuthorize("hasAuthority('manufacturer:write')")
-    public ResponseEntity<Manufacturer> createManufacturer(@RequestBody Manufacturer manufacturer) {
-        return ResponseEntity.ok(manufacturerService.save(manufacturer));
+    public ResponseEntity<ManufacturerModel> createManufacturer(@RequestBody ManufacturerRequest request) {
+        return ResponseEntity.ok(manufacturerService.createNewManufacturer(request));
     }
 }
