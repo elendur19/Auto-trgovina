@@ -6,13 +6,14 @@
 /home/mislav/projects/Auto-trgovina/backend/src/main/java/hr/fer/ris/autotrgovina/AutoTrgovinaApplication.java
 /home/mislav/projects/Auto-trgovina/backend/src/main/java/hr/fer/ris/autotrgovina/model/VehicleResponse.java
 /home/mislav/projects/Auto-trgovina/backend/src/main/java/hr/fer/ris/autotrgovina/repository/ManufacturerRepository.java
-/home/mislav/projects/Auto-trgovina/backend/src/main/java/hr/fer/ris/autotrgovina/security/UserPermission.java
-/home/mislav/projects/Auto-trgovina/backend/src/main/java/hr/fer/ris/autotrgovina/security/UserRole.java
+/home/mislav/projects/Auto-trgovina/backend/src/main/java/hr/fer/ris/autotrgovina/controller/AuthController.java
+/home/mislav/projects/Auto-trgovina/backend/src/main/java/hr/fer/ris/autotrgovina/common/model/ErrorDetails.java
 /home/mislav/projects/Auto-trgovina/backend/src/main/java/hr/fer/ris/autotrgovina/service/implementation/VehicleServiceImpl.java
 /home/mislav/projects/Auto-trgovina/backend/src/main/java/hr/fer/ris/autotrgovina/service/definition/VehicleService.java
 /home/mislav/projects/Auto-trgovina/backend/src/main/java/hr/fer/ris/autotrgovina/entity/Vehicle.java
-/home/mislav/projects/Auto-trgovina/backend/src/main/java/hr/fer/ris/autotrgovina/controller/AdminController.java
+/home/mislav/projects/Auto-trgovina/backend/src/main/java/hr/fer/ris/autotrgovina/entity/User.java
 /home/mislav/projects/Auto-trgovina/backend/src/main/java/hr/fer/ris/autotrgovina/entity/BaseEntity.java
+/home/mislav/projects/Auto-trgovina/backend/src/main/java/hr/fer/ris/autotrgovina/common/controller/ApplicationExceptionHandler.java
 /home/mislav/projects/Auto-trgovina/backend/src/main/java/hr/fer/ris/autotrgovina/service/definition/ManufacturerService.java
 /home/mislav/projects/Auto-trgovina/backend/src/main/java/hr/fer/ris/autotrgovina/service/implementation/ManufacturerServiceImpl.java
 /home/mislav/projects/Auto-trgovina/backend/src/main/java/hr/fer/ris/autotrgovina/exception/BusinessException.java
@@ -23,5 +24,7 @@
 /home/mislav/projects/Auto-trgovina/backend/src/main/java/hr/fer/ris/autotrgovina/entity/Manufacturer.java
 /home/mislav/projects/Auto-trgovina/backend/src/main/java/hr/fer/ris/autotrgovina/controller/ManufacturerController.java
 /home/mislav/projects/Auto-trgovina/backend/src/main/java/hr/fer/ris/autotrgovina/service/definition/CRUDService.java
-/home/mislav/projects/Auto-trgovina/backend/src/main/java/hr/fer/ris/autotrgovina/security/PasswordConfig.java
+/home/mislav/projects/Auto-trgovina/backend/src/main/java/hr/fer/ris/autotrgovina/config/SpringFoxConfig.java
 /home/mislav/projects/Auto-trgovina/backend/src/main/java/hr/fer/ris/autotrgovina/exception/VehicleNotFoundException.java
+/home/mislav/projects/Auto-trgovina/backend/src/main/java/hr/fer/ris/autotrgovina/model/ManufacturerRequest.java
+/home/mislav/projects/Auto-trgovina/backend/src/main/java/hr/fer/ris/autotrgovina/exception/ManufacturerExistsException.java

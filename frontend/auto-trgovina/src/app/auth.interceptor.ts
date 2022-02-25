@@ -14,17 +14,21 @@ import { catchError } from 'rxjs/operators';
 export class AuthInterceptor implements HttpInterceptor {
 
     constructor(public authService: AuthService) { }
-
+ 
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-        if (request.url.includes("/validateLogin")) {
+         const xhr = request.clone({
+            headers: request.headers.set('X-Requested-With', 'XMLHttpRequest')
+          }); 
+
+         if (request.url.includes("/validateLogin")) {
             const encodedValue = this.authService.getUserInfo();
             request = request.clone({
                 setHeaders: {
                     Authorization: 'Basic ' + encodedValue
                 }
             });
-        }
+        } 
 
-        return next.handle(request);
-    }
-}
+        return next.handle(xhr); 
+    } 
+} 

@@ -12,7 +12,7 @@ import { NewVehicleComponent } from './new-vehicle/new-vehicle.component';
 import { FormsModule } from '@angular/forms';
 import { VehicleListUserComponent } from './vehicle-list-user/vehicle-list-user.component';
 import { ManufacturersListComponent } from './manufacturers-list/manufacturers-list.component';
-import { AdminPageComponent } from './admin-page/admin-page.component';
+import { LoginComponent } from './login/login.component';
 import { ManufacturerService } from './service/manufacturer.service';
 import { AuthService } from './service/auth.service';
 import { AuthInterceptor } from './auth.interceptor';
@@ -29,7 +29,7 @@ import { ResponseInterceptor } from './response.interceptor';
     NewVehicleComponent,
     VehicleListUserComponent,
     ManufacturersListComponent,
-    AdminPageComponent
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -39,11 +39,11 @@ import { ResponseInterceptor } from './response.interceptor';
     FormsModule
   ],
   providers: [
-    {
+     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,
       multi: true
-    },
+    }, 
     {
       provide: HTTP_INTERCEPTORS,
       useClass: ResponseInterceptor,

@@ -37,8 +37,8 @@ export class ManufacturersListComponent implements OnInit {
     this.selectedManufacturer = manufacturer;
   }
 
-  toAdminPage() {
-    this.router.navigate(['admin']);
+  toLoginPage() {
+    this.router.navigate(['login']);
   }
 
 }

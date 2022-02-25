@@ -3,17 +3,21 @@
         Manufacturers
     </div>
     <div>
-        <button type="button" class="btn btn-success col-2 m-r-10" style="float:right" (click)="toAdminPage()">Admin page</button>
+        <button type="button" class="btn btn-success col-2 m-r-10" style="float:right" (click)="toLoginPage()">Login
+            page</button>
     </div>
     <div class="card-body centered margins">
         <ul class="vehicles">
             <div *ngFor="let manufacturer of manufacturers" style="margin-top:20px">
-                <li type="button" [class.selected]="manufacturer === selectedManufacturer" class="btn btn-secondary" (click)="manufacturerClicked(manufacturer)" class="list-group-item">
-                        {{ manufacturer.name }} </li>
+                <li type="button" [class.selected]="manufacturer === selectedManufacturer" class="btn btn-secondary"
+                    (click)="manufacturerClicked(manufacturer)" class="list-group-item">
+                    {{ manufacturer.name }} 
+                    <button type="button" class="btn btn-primary btn-sm" style="float:right">Vehicles</button>
+                </li>
 
             </div>
         </ul>
-    
+
     </div>
 </div>
 <div class="card split right">
