@@ -11,7 +11,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="autotrgovina" target="16" />
+      <module name="autotrgovina" target="17" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
