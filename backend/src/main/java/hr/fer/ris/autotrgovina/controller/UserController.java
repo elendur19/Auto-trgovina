@@ -1,12 +1,12 @@
 package hr.fer.ris.autotrgovina.controller;
 
+import hr.fer.ris.autotrgovina.entity.Role;
 import hr.fer.ris.autotrgovina.entity.User;
+import hr.fer.ris.autotrgovina.model.UserRoleRequest;
 import hr.fer.ris.autotrgovina.service.definition.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -20,4 +20,22 @@ public class UserController {
     public ResponseEntity<List<User>> getUsers() {
         return ResponseEntity.ok().body(userService.getUsers());
     }
+
+    @PostMapping()
+    public ResponseEntity<User> saveUser(@RequestBody User user) {
+        return ResponseEntity.ok().body(userService.saveUser(user));
+    }
+
+    @PostMapping("/role")
+    public ResponseEntity<Role> saveRole(@RequestBody Role role) {
+        return ResponseEntity.ok().body(userService.saveRole(role));
+    }
+
+    @PostMapping("/role/add")
+    public ResponseEntity<?> saveRole(@RequestBody UserRoleRequest request) {
+        userService.addRoleToUser(request.getUsername(), request.getRoleName());
+        return ResponseEntity.ok().build();
+
+    }
+
 }
