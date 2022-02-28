@@ -15,7 +15,7 @@ import { ManufacturersListComponent } from './manufacturers-list/manufacturers-l
 import { LoginComponent } from './login/login.component';
 import { ManufacturerService } from './service/manufacturer.service';
 import { AuthService } from './service/auth.service';
-import { AuthInterceptor } from './auth.interceptor';
+//import { AuthInterceptor } from './auth.interceptor';
 import { ResponseInterceptor } from './response.interceptor';
 
 //import { MatSidenavModule } from '@angular/';
@@ -39,11 +39,6 @@ import { ResponseInterceptor } from './response.interceptor';
     FormsModule
   ],
   providers: [
-     {
-      provide: HTTP_INTERCEPTORS,
-      useClass: AuthInterceptor,
-      multi: true
-    }, 
     {
       provide: HTTP_INTERCEPTORS,
       useClass: ResponseInterceptor,

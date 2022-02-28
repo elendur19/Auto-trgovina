@@ -1,4 +1,4 @@
-import { HttpClient, HttpErrorResponse, HttpHeaders } from "@angular/common/http";
+import { HttpClient, HttpErrorResponse, HttpHeaders, HttpParams } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Router } from "@angular/router";
 import { Observable } from "rxjs";
@@ -21,13 +21,15 @@ export class AuthService {
         return btoa(localStorage.getItem("username") + ":" + localStorage.getItem("password"));
     }
 
-    authenticate(credentials: any): boolean {
+    authenticate(username: string, password: string): boolean {
 
-        const headers = new HttpHeaders(credentials ? {
-            'Authorization' : 'Basic ' + btoa(credentials.username + ':' + credentials.password)
-        } : {});
+        let body: HttpParams = new HttpParams();
+        body = body.append('username', username);
+        body = body.append('password', password);
+        
+        console.log("Username --> " + username);
 
-        this.http.get('http://localhost:8080/api/authorize', {headers: headers}).subscribe(response => {
+        this.http.post('http://localhost:8080/api/login', body).subscribe(response => {
             console.log("Successfull login.");
             this.authenticated = true;
             this.router.navigateByUrl('/manufacturers');

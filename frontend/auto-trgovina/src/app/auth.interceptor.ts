@@ -9,13 +9,13 @@ import {
 import { Observable, throwError } from 'rxjs';
 import { AuthService } from './service/auth.service';
 import { catchError } from 'rxjs/operators';
-
+/* 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
 
     constructor(public authService: AuthService) { }
  
-    intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
          const xhr = request.clone({
             headers: request.headers.set('X-Requested-With', 'XMLHttpRequest')
           }); 
@@ -30,5 +30,5 @@ export class AuthInterceptor implements HttpInterceptor {
         } 
 
         return next.handle(xhr); 
-    } 
-} 
+    }  
+}  */

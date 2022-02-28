@@ -22,6 +22,7 @@
 /home/mislav/projects/Auto-trgovina/backend/src/main/java/hr/fer/ris/autotrgovina/entity/BaseEntity.java
 /home/mislav/projects/Auto-trgovina/backend/src/main/java/hr/fer/ris/autotrgovina/common/controller/ApplicationExceptionHandler.java
 /home/mislav/projects/Auto-trgovina/backend/src/main/java/hr/fer/ris/autotrgovina/service/definition/ManufacturerService.java
+/home/mislav/projects/Auto-trgovina/backend/src/main/java/hr/fer/ris/autotrgovina/security/config/CorsConfig.java
 /home/mislav/projects/Auto-trgovina/backend/src/main/java/hr/fer/ris/autotrgovina/service/implementation/ManufacturerServiceImpl.java
 /home/mislav/projects/Auto-trgovina/backend/src/main/java/hr/fer/ris/autotrgovina/exception/BusinessException.java
 /home/mislav/projects/Auto-trgovina/backend/src/main/java/hr/fer/ris/autotrgovina/model/VehicleRequest.java

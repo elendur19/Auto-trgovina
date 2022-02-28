@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
     console.log("username -> " + this.credentials.username + " and password -> " + this.credentials.password);
     //localStorage.setItem('username', this.username);
     //localStorage.setItem('password', this.password);
-    this.badCredentials = !this.authService.authenticate(this.credentials);
+    this.badCredentials = !this.authService.authenticate(this.credentials.username, this.credentials.password);
     
     console.log("trying to validate user");
   }
