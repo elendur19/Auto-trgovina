@@ -1,6 +1,5 @@
 package hr.fer.ris.autotrgovina.controller;
 
-import hr.fer.ris.autotrgovina.entity.Manufacturer;
 import hr.fer.ris.autotrgovina.model.ManufacturerModel;
 import hr.fer.ris.autotrgovina.model.ManufacturerRequest;
 import hr.fer.ris.autotrgovina.service.definition.ManufacturerService;
@@ -23,7 +22,7 @@ public class ManufacturerController {
     }
 
     @GetMapping
-    //@PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_USER')")
+    //@PreAuthorize("hasRole('USER')")
     public ResponseEntity<List<ManufacturerModel>> getAllManufacturers() {
         return ResponseEntity.ok(manufacturerService.getAllManufacturers());
     }

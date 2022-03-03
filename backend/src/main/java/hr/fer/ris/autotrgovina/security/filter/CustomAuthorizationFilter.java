@@ -64,6 +64,7 @@ public class CustomAuthorizationFilter extends OncePerRequestFilter {
                 }
 
             } else {
+                // TODO provjeriti sto ovdje napraviti
                 filterChain.doFilter(request, response);
             }
         }

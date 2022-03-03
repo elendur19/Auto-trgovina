@@ -3,6 +3,7 @@ import { Injectable } from "@angular/core";
 import { Router } from "@angular/router";
 import { Observable } from "rxjs";
 import { Admin } from "../model/Admin";
+import { User } from "../model/User";
 
 
 @Injectable({
@@ -29,15 +30,32 @@ export class AuthService {
         
         console.log("Username --> " + username);
 
-        this.http.post('http://localhost:8080/api/login', body).subscribe(response => {
+        this.http.post<any>('http://localhost:8080/api/login', body).subscribe(response => {
             console.log("Successfull login.");
+            localStorage.setItem('tokenID', response.access_token);
             this.authenticated = true;
             this.router.navigateByUrl('/manufacturers');
-        },
+        }, 
         (error: HttpErrorResponse) => {
             this.authenticated = false;
             console.log("Unsuccessfull login attempt.");
         });      
         return this.authenticated;
     }
+
+    register(user: User) {
+        const requestBody = { 'firstName': user.firstName,
+                              'lastName': user.lastName, 
+                              'username': user.username, 
+                              'password': user.password
+                            }
+
+        this.http.post('http://localhost:8080/api/register', requestBody).subscribe(response => {
+            console.log("User registered.");
+            this.router.navigateByUrl('/login');      
+            },
+            (error: HttpErrorResponse) => {
+                console.log("Error during user registration.");
+            });
+        }
 }

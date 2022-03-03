@@ -8,9 +8,11 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import hr.fer.ris.autotrgovina.entity.Role;
 import hr.fer.ris.autotrgovina.entity.User;
 import hr.fer.ris.autotrgovina.exception.UsernameAlreadyExistsException;
+import hr.fer.ris.autotrgovina.model.UserRequest;
 import hr.fer.ris.autotrgovina.repository.RoleRepository;
 import hr.fer.ris.autotrgovina.repository.UserRepository;
 import hr.fer.ris.autotrgovina.service.definition.UserService;
+import liquibase.pro.packaged.U;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -48,13 +50,18 @@ public class UserServiceImplementation implements UserService {
 
     @Override
     @Transactional
-    public User saveUser(User user) {
-       if (userRepository.findByUsername(user.getUsername()) != null)
+    public User saveUser(UserRequest request) {
+       if (userRepository.findByUsername(request.getUsername()) != null)
             throw new UsernameAlreadyExistsException();
 
+       User user = new User();
        log.info("Saving new user {} to the database",
-               user.getFirstName() + user.getLastName());
-       user.setPassword(passwordEncoder.encode(user.getPassword()));
+               request.getFirstName() + request.getLastName());
+       user.setFirstName(request.getFirstName());
+       user.setLastName(request.getLastName());
+       user.setUsername(request.getUsername());
+       user.setPassword(passwordEncoder.encode(request.getPassword()));
+
        return userRepository.save(user);
     }
 

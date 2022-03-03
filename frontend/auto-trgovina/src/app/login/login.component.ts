@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit {
     console.log("trying to validate user");
   }
 
-  routeToMainPage() {
-    this.router.navigate(['manufacturers']);``
+  routeToRegisterPage() {
+    this.router.navigate(['register']);``
   }
 }

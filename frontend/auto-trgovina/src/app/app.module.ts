@@ -17,6 +17,7 @@ import { ManufacturerService } from './service/manufacturer.service';
 import { AuthService } from './service/auth.service';
 //import { AuthInterceptor } from './auth.interceptor';
 import { ResponseInterceptor } from './response.interceptor';
+import { HomeComponent } from './home/home.component';
 
 //import { MatSidenavModule } from '@angular/';
 
@@ -29,7 +30,8 @@ import { ResponseInterceptor } from './response.interceptor';
     NewVehicleComponent,
     VehicleListUserComponent,
     ManufacturersListComponent,
-    LoginComponent
+    LoginComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,30 @@
+
+<div class="container">
+    <div class="text-center padding"><h2>Register</h2></div>  
+    <div class="form-group row">
+        <form (ngSubmit)="onSubmit()">
+            <div class="row">
+            <div class="col">
+                <input type="text" class="form-control" [(ngModel)]="user.firstName" name="firstName" placeholder="First name">
+            </div>
+            <div class="col">
+                <input type="text" class="form-control" [(ngModel)]="user.lastName" name="lastName" placeholder="Last name">
+            </div>
+            </div>
+            <div class="col-md-4 mb-3">
+                <label for="validationDefaultUsername">Username</label>
+                <div class="input-group">
+                <input type="text" class="form-control" [(ngModel)]="user.username" id="validationDefaultUsername" 
+                                 placeholder="Username" name="username" aria-describedby="inputGroupPrepend2" required>
+                </div>
+            </div>
+        </form>
+        <label for="inputPassword5">Password</label>
+        <input type="password" id="inputPassword5" class="form-control" 
+        [(ngModel)]="user.password" aria-describedby="passwordHelpBlock">
+        <div>
+            <button type="submit" class="btn btn-primary col-4" (click)=registerUser()>Register</button>
+            <button type="submit" class="btn btn-primary col-4" style="float: right;" (click)=loginPage()>Login Page</button>
+        </div>
+    </div>
+</div>

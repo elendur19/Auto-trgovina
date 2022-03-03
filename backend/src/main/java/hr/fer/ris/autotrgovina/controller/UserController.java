@@ -21,11 +21,6 @@ public class UserController {
         return ResponseEntity.ok().body(userService.getUsers());
     }
 
-    @PostMapping()
-    public ResponseEntity<User> saveUser(@RequestBody User user) {
-        return ResponseEntity.ok().body(userService.saveUser(user));
-    }
-
     @PostMapping("/role")
     public ResponseEntity<Role> saveRole(@RequestBody Role role) {
         return ResponseEntity.ok().body(userService.saveRole(role));
