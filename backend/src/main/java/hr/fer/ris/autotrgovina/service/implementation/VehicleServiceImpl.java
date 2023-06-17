@@ -11,6 +11,10 @@ import hr.fer.ris.autotrgovina.repository.VehicleRepository;
 import hr.fer.ris.autotrgovina.service.definition.VehicleService;
 import lombok.SneakyThrows;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -39,6 +43,20 @@ public class VehicleServiceImpl extends AbstractService<Vehicle, Long> implement
     }
 
     @Override
+    public Page<VehicleResponse> getVehicles(Pageable pageable) {
+        var vehicles = vehicleRepository.findAll(pageable);
+        return vehicles.map(this::mapVehicleToResponse);
+    }
+
+    @Override
+    public List<VehicleResponse> getAllVehicles() {
+        return vehicleRepository.findAll()
+                .stream()
+                .map(this::mapVehicleToResponse)
+                .toList();
+    }
+
+    @Override
     @Transactional
     public VehicleResponse createNewVehicle(VehicleRequest request) {
         Manufacturer manufacturer = manufacturerRepository.findByName(request.getManufacturer());
@@ -56,6 +74,7 @@ public class VehicleServiceImpl extends AbstractService<Vehicle, Long> implement
 
     private VehicleResponse mapVehicleToResponse(Vehicle vehicle) {
         VehicleResponse vehicleResponse = new VehicleResponse();
+        vehicleResponse.setId(vehicle.getId());
         vehicleResponse.setModel(vehicle.getModel());
         vehicleResponse.setPower(vehicle.getPower());
         vehicleResponse.setManufacturerName(vehicle.getManufacturer().getName());

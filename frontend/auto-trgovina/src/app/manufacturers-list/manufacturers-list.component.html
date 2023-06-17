@@ -1,10 +1,10 @@
-<div class="card split left">
+<div class="card">
     <div class="card-header margin" style="font-size: 30px; text-align: center;">
         Manufacturers
     </div>
-    <div>
+    <!-- <div>
         <button type="button" class="btn btn-success col-2 m-r-10" style="float:right" (click)="toAdminPage()">Admin page</button>
-    </div>
+    </div> -->
     <div class="card-body centered margins">
         <ul class="vehicles">
             <div *ngFor="let manufacturer of manufacturers" style="margin-top:20px">
@@ -16,11 +16,6 @@
     
     </div>
 </div>
-<div class="card split right">
-    <div class="centered">
-        <div class="card-body">
-            <app-vehicle-list-user *ngIf="selected" [vehicleManufacturer]="selectedManufacturer">
-            </app-vehicle-list-user>
-        </div>
-    </div>
+<div>
+    <button type="button" class="btn btn-success">Create new Manufacturer</button>
 </div>

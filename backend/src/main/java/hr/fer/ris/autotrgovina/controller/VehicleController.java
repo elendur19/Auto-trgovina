@@ -5,6 +5,8 @@ import hr.fer.ris.autotrgovina.model.VehicleRequest;
 import hr.fer.ris.autotrgovina.model.VehicleResponse;
 import hr.fer.ris.autotrgovina.service.definition.VehicleService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -21,9 +23,14 @@ public class VehicleController {
         this.vehicleService = vehicleService;
     }
 
+    @GetMapping("/sort")
+    public Page<VehicleResponse> getVehicles(Pageable pageable) {
+        return vehicleService.getVehicles(pageable);
+    }
+
     @GetMapping
-    public ResponseEntity<List<Vehicle>> getAllVehicles() {
-        return ResponseEntity.ok(vehicleService.getAll());
+    public ResponseEntity<List<VehicleResponse>> getAllVehicles() {
+        return ResponseEntity.ok(vehicleService.getAllVehicles());
     }
 
     @GetMapping("/{id}")

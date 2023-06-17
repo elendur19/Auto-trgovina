@@ -1,18 +1,18 @@
 <div class="container">
-    <h1>{{ action }} Vehicle Data</h1>
+    <h1>{{ action }} VehicleModel Data</h1>
     <form (ngSubmit)="onSubmit()" #vehicleForm="ngForm">
         <div class="row">
         <div class="form-group col">
-            <label for="model" class="bold">Vehicle model: </label>
+            <label for="model" class="bold">VehicleModel model: </label>
             <input type="text" class="form-control" id="model" required [(ngModel)]="vehicle.model" name="model"
                 #model="ngModel">
             <div [hidden]="model.valid" class="alert alert-danger">
-                Vehicle's name is required
+                VehicleModel's name is required
             </div>
         </div>
         <div class="form-group col">
-            <label for="model" class="bold">Vehicle manufacturer: </label>
-            <input type="text" class="form-control" id="manufacturer" required [(ngModel)]="vehicle.manufacturer"
+            <label for="model" class="bold">VehicleModel manufacturer: </label>
+            <input type="text" class="form-control" id="manufacturer" required [(ngModel)]="vehicle.manufacturerName"
                 name="manufacturer" #manufacturer="ngModel">
             <div [hidden]="manufacturer.valid" class="alert alert-danger">
                 Manufacturer's name is required
@@ -21,25 +21,25 @@
         </div>
         <div class="row">
         <div class="form-group col">
-            <label for="model" class="bold">Vehicle millage: </label>
+            <label for="model" class="bold">VehicleModel millage: </label>
             <input type="number" class="form-control" id="millage" required [(ngModel)]="vehicle.millage" name="millage"
                 #millage="ngModel">
             <div [hidden]="millage.valid" class="alert alert-danger">
                 Manufacturer's millage is required
             </div>
         </div>
-        <div class="form-group col">
-            <label for="model" class="bold">Vehicle description: </label>
+        <!-- <div class="form-group col">
+            <label for="model" class="bold">VehicleModel description: </label>
             <input type="text" class="form-control" id="description" required [(ngModel)]="vehicle.description"
                 name="description" #description="ngModel">
             <div [hidden]="description.valid" class="alert alert-danger">
                 Manufacturer's description is required
             </div>
-        </div>
+        </div> -->
     </div>
     <div class="row">
         <div class="form-group col">
-            <label for="model" class="bold">Vehicle firstRegistration: </label>
+            <label for="model" class="bold">VehicleModel firstRegistration: </label>
             <input type="date" class="form-control" id="firstRegistration" required
                 [(ngModel)]="vehicle.firstRegistration" name="firstRegistration" #firstRegistration="ngModel">
             <div [hidden]="firstRegistration.valid" class="alert alert-danger">
@@ -47,7 +47,7 @@
             </div>
         </div>
         <div class="form-group col">
-            <label for="model" class="bold">Vehicle power: </label>
+            <label for="model" class="bold">VehicleModel power: </label>
             <input type="number" class="form-control" id="power" required [(ngModel)]="vehicle.power" name="power"
                 #power="ngModel">
             <div [hidden]="power.valid" class="alert alert-danger">
@@ -57,7 +57,7 @@
     </div>
     <div class="row">
         <div class="form-group col">
-            <label for="model" class="bold">Vehicle price: </label>
+            <label for="model" class="bold">VehicleModel price: </label>
             <input type="number" class="form-control" id="price" required [(ngModel)]="vehicle.price" name="price"
                 #price="ngModel">
             <div [hidden]="price.valid" class="alert alert-danger">
@@ -65,7 +65,7 @@
             </div>
         </div>
         <div class="form-group col">
-            <label for="model" class="bold">Vehicle contact: </label>
+            <label for="model" class="bold">VehicleModel contact: </label>
             <input type="text" class="form-control" id="contact" required [(ngModel)]="vehicle.contact" name="contact"
                 #contact="ngModel">
             <div [hidden]="contact.valid" class="alert alert-danger">
@@ -74,6 +74,6 @@
         </div>
         </div>
         <button type="submit" class="btn btn-success m-t-10" [disabled]="!vehicleForm.form.valid">Submit</button>
-        <button class="btn btn-secondary mt float-right m-t-10" style="margin-left: 10px;" routerLink="/manage">Back to Vehicles</button>
+        <button class="btn btn-secondary mt float-right m-t-10" style="margin-left: 10px;" routerLink="/vehicleList">Back to Vehicles</button>
     </form>
 </div>

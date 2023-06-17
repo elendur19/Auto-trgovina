@@ -11,7 +11,7 @@ import javax.validation.constraints.NotNull;
 import java.util.List;
 
 @Entity
-@Table(name = "manufacturer", schema = "sc_auto_trgovina")
+@Table(name = "manufacturer")
 @Getter
 @Setter
 @AllArgsConstructor
@@ -22,6 +22,6 @@ public class Manufacturer extends BaseEntity {
     private String name;
 
     @JsonIgnore
-    @OneToMany(mappedBy="manufacturer")
+    @OneToMany(mappedBy = "manufacturer")
     private List<Vehicle> vehicles;
 }

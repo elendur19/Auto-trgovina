@@ -8,7 +8,7 @@ import java.time.LocalDate;
 
 @EqualsAndHashCode(callSuper = true)
 @Entity
-@Table(name = "vehicle", schema = "sc_auto_trgovina")
+@Table(name = "vehicle")
 @Getter
 @Setter
 @AllArgsConstructor
@@ -16,11 +16,11 @@ import java.time.LocalDate;
 @ToString(callSuper = true)
 @Builder
 public class Vehicle extends BaseEntity {
-    @JoinColumn(name="manufacturer_id", insertable=false, updatable = false)
+    @JoinColumn(name = "manufacturer_id", insertable = false, updatable = false)
     @ManyToOne
     //@JsonIgnore
     private Manufacturer manufacturer;
-    @Column(name="manufacturer_id")
+    @Column(name = "manufacturer_id")
     @NotNull
     private Long manufacturerId;
     @Column(name = "model")

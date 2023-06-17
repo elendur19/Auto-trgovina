@@ -6,7 +6,6 @@ import hr.fer.ris.autotrgovina.model.ManufacturerModel;
 import hr.fer.ris.autotrgovina.model.ManufacturerRequest;
 import hr.fer.ris.autotrgovina.service.definition.ManufacturerService;
 import hr.fer.ris.autotrgovina.repository.ManufacturerRepository;
-import liquibase.pro.packaged.M;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

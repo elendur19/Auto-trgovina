@@ -1,8 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Vehicle } from '../model/Vehicle';
+import { VehicleModel } from '../model/VehicleModel';
 import { VehicleService } from '../service/vehicle.service';
 import { Router } from '@angular/router';
 import { Manufacturer } from '../model/Manufacturer';
+import { HttpParams } from '@angular/common/http';
 
 @Component({
   selector: 'app-vehicle-list-user',
@@ -11,9 +12,9 @@ import { Manufacturer } from '../model/Manufacturer';
 })
 export class VehicleListUserComponent implements OnInit {
 
-  vehicles: Vehicle[]
+  vehicles: VehicleModel[]
   selected: boolean = false;
-  selectedVehicle: Vehicle = new Vehicle;
+  selectedVehicle: VehicleModel = new VehicleModel;
   private _vehicleManufacturer: Manufacturer;
   
   get vehicleManufacturer(): Manufacturer {
@@ -35,12 +36,15 @@ export class VehicleListUserComponent implements OnInit {
   }
 
   public getAll() {
-    this.vehicleService.findAll().subscribe(data => {
-      this.vehicles = data;
+    const params = new HttpParams()
+      .set('page', 0)
+      .set('size', 0)
+    this.vehicleService.findAll(params).subscribe(data => {
+      this.vehicles = data.content;
     })
   }
 
-  vehicleClicked(vehicle: Vehicle) {
+  vehicleClicked(vehicle: VehicleModel) {
     this.selected = true;
     this.selectedVehicle = vehicle;
     this.router.navigate(['vehicle'], { state: { id: this.selectedVehicle.id } })
@@ -57,8 +61,12 @@ export class VehicleListUserComponent implements OnInit {
   }
 
   dropFilter() {
-    this.vehicleService.findAll().subscribe(data => {
-      this.vehicles = data;
+    const params = new HttpParams()
+      .set('page', 0)
+      .set('size', 10)
+  
+    this.vehicleService.findAll(params).subscribe(data => {
+      this.vehicles = data.content;
       this.vehicleManufacturer = new Manufacturer;
       this.noVehicles = false;
     })

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Vehicle } from '../model/Vehicle';
+import { VehicleModel } from '../model/VehicleModel';
 import { FormsModule } from '@angular/forms';
 import { VehicleService } from '../service/vehicle.service';
 import { Router } from '@angular/router';
@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class NewVehicleComponent implements OnInit {
 
-  public vehicle = new Vehicle();
+  public vehicle = new VehicleModel();
   action: string = "New";
 
   constructor(private vehicleService: VehicleService,

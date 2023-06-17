@@ -17,6 +17,10 @@ import { ManufacturerService } from './service/manufacturer.service';
 import { AuthService } from './service/auth.service';
 import { AuthInterceptor } from './auth.interceptor';
 import { ResponseInterceptor } from './response.interceptor';
+import { HomeComponent } from './home/home.component';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { VehicleDetailsComponent } from './vehicle-details/vehicle-details.component';
 
 //import { MatSidenavModule } from '@angular/';
 
@@ -29,9 +33,13 @@ import { ResponseInterceptor } from './response.interceptor';
     NewVehicleComponent,
     VehicleListUserComponent,
     ManufacturersListComponent,
-    AdminPageComponent
+    AdminPageComponent,
+    HomeComponent,
+    VehicleDetailsComponent
   ],
   imports: [
+    NgxPaginationModule,
+    MatPaginatorModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,

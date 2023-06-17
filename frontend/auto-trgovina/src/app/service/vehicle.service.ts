@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable, Subject } from 'rxjs';
 import { Router } from '@angular/router';
-import { Vehicle } from '../model/Vehicle';
+import { VehicleModel } from '../model/VehicleModel';
+import { VehicleResponse } from '../model/VehicleResponse';
 
 
 @Injectable({
@@ -23,19 +24,20 @@ export class VehicleService {
       })
    }
 
-   public findAll(): Observable<Vehicle[]> {
-     return this.http.get<Vehicle[]>(this.vehiclesUrl);
+   public findAll(params: HttpParams): Observable<VehicleResponse> {
+    const options = { params: params };
+     return this.http.get<VehicleResponse>(this.vehiclesUrl + '/sort', options);
    }
 
-   public filterVehicles(manufacturerId: number): Observable<Vehicle[]> {
-     return this.http.get<Vehicle[]>(this.vehiclesUrl + '/filter', {
+   public filterVehicles(manufacturerId: number): Observable<VehicleModel[]> {
+     return this.http.get<VehicleModel[]>(this.vehiclesUrl + '/filter', {
        params: {
          manufacturer: manufacturerId
        }});
    }
 
-   public getVehicleById(vehicleId: number): Observable<Vehicle> {
-      return this.http.get<Vehicle>(this.vehiclesUrl + '/' + vehicleId);
+   public getVehicleById(vehicleId: number): Observable<VehicleModel> {
+      return this.http.get<VehicleModel>(this.vehiclesUrl + '/' + vehicleId);
   }
 
   public deleteVehicle(vehicleId: number): Observable<any> {
@@ -43,11 +45,11 @@ export class VehicleService {
     return this.http.delete<any>(this.vehiclesUrl + '/' + vehicleId );
   }
 
-  public save(vehicle: Vehicle) {
-    return this.http.post<Vehicle>(this.vehiclesUrl, vehicle);
+  public save(vehicle: VehicleModel) {
+    return this.http.post<VehicleModel>(this.vehiclesUrl, vehicle);
   }
 
-  public update(vehicle: Vehicle) {
-    return this.http.put<Vehicle>(this.vehiclesUrl + '/' + vehicle.id, vehicle);
+  public update(vehicle: VehicleModel) {
+    return this.http.put<VehicleModel>(this.vehiclesUrl + '/' + vehicle.id, vehicle);
   }
 }
